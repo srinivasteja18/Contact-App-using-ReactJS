@@ -1,38 +1,336 @@
-.App {
-  text-align: center;
+:root{
+  --navColor : hsl(244, 38%, 16%);
+  --mainBackground: hsl(233, 47%, 7%);
+  --buttonColor:hsl(277, 36%, 49%);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+body{
+  background-color:  hsl(233, 47%, 7%);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.container{
+  display: grid;
+  grid-template-rows: 10vh 80vh 10vh;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.NavBar{
+  margin: 0;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: hsl(244, 38%, 16%);
+  font-size: 1rem;
+}
+.NavList{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  margin-right: 3rem
+}
+.navItems,.title{
+  text-decoration: none;
+  margin: .5rem;
+  color: white;
+  font-size: 1.2rem;
+  transition: .3s ease;
+}
+.title{
+  margin-left: 3rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.navItems:hover, .title:hover{
+  transition: .3s ease;
+  color: hsl(277, 46%, 51%);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.footer{
+  position: fixed;
+  width: 100vw;
+  background-color: hsl(244, 38%, 16%);
+  bottom: 0;
+  font-size: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 1rem;
+  font-weight: 500;
+  text-align: center;
+  color: white;
+}
+
+/* form styling */
+
+.form-div{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.helper{
+  margin-top: 2rem;
+  background-color: hsl(244, 38%, 16%);
+  padding: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border-radius: 10px;
+  box-shadow: 0 0 1rem rgb(4, 4, 36);
+  color: white
+}
+.sign-title{
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 1rem;
+  font-weight: 700;
+}
+.title-span{
+  font-size: 1.2rem;
+}
+
+.input_container label{
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.input-container input[type=email],
+.input-container input[type=password]{
+  padding:.9rem 2rem .5rem 3rem;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 700;
+  color: black;
+  margin-top: .5rem;
+  border-radius: 5px;
+  color: hsl(244, 38%, 16%);
+  background-color: white;
+  border:0;
+  min-width: 20vw;
+}
+.button{
+  padding: .5rem 1rem;
+  width: 100%;
+  background-color:hsl(277, 40%, 51%) ;
+  border: 0;
+  margin-top: 2rem;
+  color: hsl(249, 78%, 2%);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: .4s ease;
+  font-weight: 500;
+}
+
+.input-container{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+.input-icon{
+  position: absolute;
+  left:10px;
+  bottom: 13px;
+  color: hsl(277, 85%, 28%);
+}
+
+button:hover{
+  background-color: hsl(277, 61%, 41%);
+}
+
+h1{
+  color: white;
+}
+
+/* ContactCard */
+
+.contact-div{
+  margin: 1rem;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  min-width: 600px;
+  border-radius: 10px;
+  box-shadow: 0 0 1rem rgb(4, 4, 36);
+}
+.viewContactInfo{
+  width: 60%;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: var(--mainBackground);
+}
+.viewContactInfo img{
+  width: 120px;
+  height: 120px;
+  border-radius: 10px;
+  margin-right: 2rem;
+}
+.ContactInfoParas span{
+  font-weight: 700;
+  margin-right: .5rem;
+}
+.Icons{
+  width: 30px;
+  height: 30px;
+  margin: 1rem;
+  color: hsl(244, 38%, 16%);
+  cursor: pointer;
+}
+
+
+/* ViewContact */
+
+.viewContactDiv{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  width: auto;
+}
+.viewContact-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  flex-direction: column;
+  background-color: var(--navColor);
+  padding: 2rem;
+}
+.viewContact-div img{
+  width: 150px;
+  height: 150px;
+  background-color: var(--navColor);  
+}
+.viewContact-div p,
+.viewContact-div a{ 
+  font-size: 1.2rem;
+  color: white;
+  font-weight: 600;
+  margin: .7rem;
+}
+.viewContact-div a{
+  background-color: var(--buttonColor);
+  text-decoration: none;
+  width: 100%;
+  padding: .5rem 1rem;
+  border-radius: 5px;
+  text-align: center;
+}
+.viewContact-div a:hover{
+  background-color: var(--mainBackground);
+  color: white;
+}
+.icon{
+  margin-right: .5rem;
+  color: white;
+}
+
+/* Add Contact */
+
+.AddContactDiv{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem;
+}
+.add-contact-div{
+  padding: 1.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  margin-bottom: 2rem;
+  display: flex;
+  background-color: var(--navColor);
+  border-radius: 10px;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.add-contact-div img{
+  margin-left: .5rem;
+  width: 120px;
+  height: 120px;
+}
+.add-contact-div input{
+  width: 100%;
+  padding: .5rem 1rem;
+  font-size: 1rem;
+  border: 0;
+  border-radius: 5px;
+  color: var(--mainBackground);
+  box-sizing: border-box;
+  margin: .5rem;
+}
+.add-contact-div label{
+  margin-left: 0.5rem;
+}
+.checkbox-div{
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.checkbox-div input{
+  width: auto;
+  margin: 1rem 1rem 1rem 0.5rem;
+}
+.add-contact-div button{
+  padding: .5rem 1rem;
+  width: 100%;
+  border: 0;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: white;
+  background-color: var(--buttonColor);
+}
+.add-contact-div button:hover{
+  background-color: hsl(277, 61%, 41%);
+}
+.img-div{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.img-div input{
+  color: white;
+}
+.Address-input{
+  height: auto;
+  overflow-wrap: break-word;
+  word-wrap: break-all;
+}
+
+/* ContactList */
+
+.ContactLists-div{
+  display: flex;
+  padding: 1rem;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+.ContactLists-div ul{
+  min-width: 50%;
+  list-style: none;
+}
+.ContactLists-div button{
+  margin-top: 1rem;
+  padding: .5rem 1rem;
+  font-size: 1rem;
+  border: 0;
+  cursor: pointer;
+  color: var(--mainBackground);
+  border-radius: 5px;
+  background-color: var(--buttonColor);
+}
+.ContactLists-div button:hover{
+  background-color: hsl(277, 61%, 41%);
 }
