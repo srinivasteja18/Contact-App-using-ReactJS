@@ -13,8 +13,6 @@ export default function AddUpdateContact() {
     const [password, setPassword] = useState('')
     const [address, setAddress] = useState('')
     const [star, setStar] = useState(false)
-    const [isUploading, setIsUploading] = useState(false)
-    const [update,setUpdate] = useState(false);
     const [phone, setPhone] = useState('')
     const [downloadURL, setDownloadURL] = useState('')
     
@@ -27,18 +25,18 @@ export default function AddUpdateContact() {
         const uploadPic = storageRef.child('images/' + file.name).put(file,metadata);
 
         uploadPic.on(firebase.storage.TaskState, snapshot => {
-            setIsUploading(true);
             var progress = (snapshot.bytesTransferred/ snapshot.totalBytes) * 100;
             switch (snapshot.state) {
                 case firebase.storage.TaskState.PAUSED:
-                    setIsUploading(false);
                     console.log("Uploading is Paused");
                     break;
                 case firebase.storage.TaskState.RUNNING:
                     console.log("Uploading is Going On");
+                    break;
+                default:
+                    console.log("default");
             }
-            if(progress == 100){
-                setIsUploading(false);
+            if(progress === 100){
                 console.log("Uploading Successfull");
                 toast("Image Uploaded Successfully",{type:"success"})
             }
@@ -70,7 +68,7 @@ export default function AddUpdateContact() {
                 star:star,
                 picture:downloadURL
             }
-            const uploadData = databaseRef.child("contacts/" + v4()).set(data);
+            databaseRef.child("contacts/" + v4()).set(data);
         }
         catch(error) {
             console.log(error)
@@ -90,7 +88,7 @@ export default function AddUpdateContact() {
             <div className="add-contact-div">
                 <h2>ADD CONTACT</h2>
                 <div className="img-div">
-                    <img src={downloadURL} />
+                    <img alt="" src={downloadURL} />
                     <input type="file" onChange={(e) => uploadImage(e)} placeholder="Upload Image"/>
                 </div>
                 <label>Name: </label>

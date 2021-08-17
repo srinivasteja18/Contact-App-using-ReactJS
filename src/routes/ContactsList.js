@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, {useContext, useEffect } from 'react'
 import {SET_LOADING,SET_CONTACTS} from '../context/Action.types'
 import firebase from 'firebase/app'
@@ -44,16 +45,6 @@ export default function ContactsList() {
     const RedirectAddContact = ()=>{
         history.push("/Home/AddContact");
     }
-
-    // const Loading = () => {
-    //    return(
-    //    <div className="Loading">
-    //         <FaSpinner className="spinner-icon"/>
-    //         <p style={{color:"white"}}>Loading...</p>
-    //     </div>
-    //    )
-    // }
-
     return (
         <div className="ContactLists-div">
             <button onClick={RedirectAddContact} className="AddContact-button">ADD CONTACT</button>
@@ -70,7 +61,7 @@ export default function ContactsList() {
                 }
                 
                 {
-                (contacts.length ==0) ?(
+                (contacts.length ===0) ?(
                     <h1 style={{textAlign:"center", color:"white"}}>No Contacts to Display</h1>
                 ):(
                     (Object.entries(contacts).map(([key,value]) =>(

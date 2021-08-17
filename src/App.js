@@ -14,11 +14,10 @@ import Reducer from './context/Reducer';
 
 import Home from './sections/Home'
 import PageNotFound from './sections/PageNotFound'
-import {Route, BrowserRouter as Router, Link, Switch} from 'react-router-dom'
+import {Route, BrowserRouter as Router, Switch} from 'react-router-dom'
 import {ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.min.css'
 import UserContext from './context/UserContext';
-
 import firebase from 'firebase/app';
 import {FirebaseConfig} from './FirebaseConfig';
 import 'firebase/firebase-auth'

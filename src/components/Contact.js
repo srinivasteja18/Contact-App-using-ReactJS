@@ -4,15 +4,15 @@ import firebase from 'firebase'
 import { FaRegStar, FaStar } from "react-icons/fa";
 import { MdDelete, MdEdit } from "react-icons/md";
 
-import { toast, ToastContainer } from 'react-toastify'
+import { toast } from 'react-toastify'
 import { UPDATE_CONTACT, SINGLE_CONTACT } from '../context/Action.types'
 import ContactContext from '../context/ContactContext'
-import { Redirect,useHistory } from 'react-router';
+import {useHistory } from 'react-router';
 
 
 export default function Contact({Contact, contactKey}) {
     let history = useHistory();
-    const {state,dispatch} = useContext(ContactContext);
+    const {dispatch} = useContext(ContactContext);
 
     const removeContact = async () =>{
         try{
@@ -46,7 +46,6 @@ export default function Contact({Contact, contactKey}) {
             payload:Contact,
             key:contactKey
         });
-        console.log(state);
         history.push("/Home/UpdateContact");
     }
 
@@ -64,7 +63,7 @@ export default function Contact({Contact, contactKey}) {
             (<FaStar onClick={UpdateContactStar} className="Icons"/>) 
             :(<FaRegStar onClick={UpdateContactStar} className="Icons"/>)}
             <div onClick={handleViewContact} className="viewContactInfo">
-                <img className="contact-pic" src={Contact.picture}/>
+                <img alt="" className="contact-pic" src={Contact.picture}/>
                 <div className="ContactInfoParas">
                     <p><span>Name: </span>{Contact.name}</p>
                     <p><span>Email Id:</span> {Contact.email}</p>
