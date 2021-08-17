@@ -19,7 +19,7 @@ body{
 
 .NavBar{
   margin: 0;
-  width: 100vw;
+  width: 100%;
   top: 0;
   margin-bottom: 2rem;
   position: fixed;
@@ -55,7 +55,7 @@ body{
 
 .footer{
   position: fixed;
-  width: 100vw;
+  width: 100%;
   background-color: hsl(244, 38%, 16%);
   bottom: 0;
   font-size: 1rem;
@@ -68,6 +68,13 @@ body{
 @media (max-width:400px) {
   .NavBar{
     flex-direction: column;
+  }
+  .NavList{
+    margin-left: 0;
+    justify-content: center;
+  }
+  .title{
+    margin-left: 0;
   }
 }
 /* form styling */
